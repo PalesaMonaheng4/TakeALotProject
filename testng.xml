@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite" configfailurepolicy="continue">
+    <listeners>
+        <listener class-name="pageObject.Listeners"/>
+    </listeners>
+    <test thread-count="5" name="TotalItems">
+        <classes>
+            <class name="test_cases.MakingOrder"/>
+        </classes>
+    </test>
+</suite> <!-- Suite -->
