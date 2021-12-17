@@ -55,13 +55,11 @@ public class Utilities extends BaseClass{
         try {
             is = new FileInputStream("C://Users//PMonaheng//IdeaProjects//Examination//target//app.properties");
         } catch (FileNotFoundException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         try {
             p.load(is);
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
 

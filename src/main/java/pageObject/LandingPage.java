@@ -14,21 +14,20 @@ public class LandingPage extends BaseClass {
         }
         catch(Exception e)
         {
-            System.out.println("No such element is displayed");
+            Reporter.log("No such element is displayed");
         }
     }
     public void feedBackPopUp()
     {
         try {
             if (driver.findElement(By.xpath("//body[@id=\"body\"]/div[4]/div/div/div/div/form")).isDisplayed() && driver.findElement(By.xpath("//body[@id=\"body\"]/div[4]/div/div/div/div/form")).isEnabled()) {
-                //waitForClick(10, By.xpath("//body[@id=\"body\"]/div[4]/div/div/div/div/form/div[1]/div[2]/div/label[2]/span[2]"));
                 clickElement(By.xpath("//body[@id=\"body\"]/div[4]/div/div/div/div/form/div[1]/div[2]/div/label[2]/span[2]"));
                 clickElement(By.xpath("//body[@id=\"body\"]/div[4]/div/div/div/div/form/div[2]/div/button"));
                 clickElement(By.xpath("//body[@id=\"body\"]/div[4]/div/div/div/div/form/div[1]/div/button"));
             }
         }
         catch (Exception e) {
-            System.out.println("Element not displayed");
+           Reporter.log("Element not displayed");
         }
     }
 

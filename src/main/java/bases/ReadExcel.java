@@ -2,7 +2,6 @@ package bases;
 
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.DataFormatter;
-import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -38,10 +37,6 @@ public class ReadExcel {
 
                     for (int j = 0; j < noOfCols; j++) {
                         arrayExcelData[i-1][j] = formatter.formatCellValue( sh.getRow(i).getCell(j));
-                        //System.out.println(arrayExcelData[i-1][j]);
-                      /*  if(arrayExcelData[2][0].equalsIgnoreCase("adidas")) {
-                            Reporter.log(arrayExcelData[2][0]);
-                        }*/
                     }
 
                 }
@@ -51,6 +46,53 @@ public class ReadExcel {
                 e.printStackTrace();
             }
             return arrayExcelData;
+        }
+        public  void writeToExcel(String brand,String overrideValue) throws Exception {
+            FileInputStream fs=new FileInputStream("C:\\Users\\PMonaheng\\IdeaProjects\\Examination\\BrandNames.xlsx");
+            XSSFWorkbook workbook=new XSSFWorkbook(fs);
+            XSSFSheet sheet=workbook.getSheet("Sheet1");
+            Cell cell;
+            if(brand.equals("Energizer Recharge")) {
+                cell = sheet.getRow(1).getCell(1);
+                cell.setCellValue(overrideValue);
+            }
+            if(brand.equals("Diesel Only Brave")) {
+                cell = sheet.getRow(2).getCell(1);
+                cell.setCellValue(overrideValue);
+            }
+            if(brand.equals("Guess")) {
+                cell = sheet.getRow(3).getCell(1);
+                cell.setCellValue(overrideValue);
+            }
+            if(brand.equals("RCT")) {
+                cell = sheet.getRow(4).getCell(1);
+                cell.setCellValue(overrideValue);
+            }
+            if(brand.equals("Iphone")) {
+                cell = sheet.getRow(5).getCell(1);
+                cell.setCellValue(overrideValue);
+            }
+            if(brand.equals("Barbie Doll")) {
+                cell = sheet.getRow(6).getCell(1);
+                cell.setCellValue(overrideValue);
+            }
+            if(brand.equals("Kettle")) {
+                cell = sheet.getRow(7).getCell(1);
+                cell.setCellValue(overrideValue);
+            }
+            if(brand.equals("Casals")) {
+                cell = sheet.getRow(8).getCell(1);
+                cell.setCellValue(overrideValue);
+            }
+            if(brand.equals("Hisense")) {
+                cell = sheet.getRow(9).getCell(1);
+                cell.setCellValue(overrideValue);
+            }
+            fs.close();
+            FileOutputStream fileOutput=new FileOutputStream("C:\\Users\\PMonaheng\\IdeaProjects\\Examination\\BrandNames.xlsx");
+            workbook.write(fileOutput);
+            fileOutput.close();
+            Reporter.log("End of writing data to excel");
         }
 }
 
